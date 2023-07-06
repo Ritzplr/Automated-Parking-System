@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block title %}Total Parkings{% endblock title %}
+{% block body %}
+<div class="container mt-5">
+    <table class="table text-center">
+        <thead class="table-success">
+            <tr>
+                <th scope="col">S.no</th>
+                <th scope="col">Vehicle Number</th>
+                <th scope="col">Vehicle Type</th>
+                <th scope="col">Vehicle Entry</th>
+                <th scope="col">₹  Total Price</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% comment %}
+            <!-- Run for loop and iterate through all the items --> {% endcomment %}
+            {% for vehicle in vehicles %}
+            <tr class="text-capitalize">
+                <th scope="row">{{forloop.counter}}</th>
+                <td class="text-uppercase"><b>{{vehicle.state}}{{vehicle.vehicle_no}}</b></td>
+                <td>{{vehicle.vehicle_type}}</td>
+                <td>{{vehicle.park_date}} | {{vehicle.park_time}}</td>
+                <td>{{vehicle.park_date}} | {{vehicle.park_time}}</td>
+                <td>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-warning" data-mdb-toggle="modal"
+                        data-mdb-target="#exampleModal">
+                        Receipt &emsp14; <i class="fas fa-receipt"></i>
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel"><img src="https://cdn3.iconfinder.com/data/icons/car-indicator-lights-icons/512/Warning_Light-16-512.png"
+                                        height="55" alt="MDB Logo" loading="lazy" /> Parking </h5>
+                                        <button type="button" class="btn-close" data-mdb-dismiss="modal"
+                                        aria-label="Close"></button>
+                                        
+                                    </div>
+                                    <p>Address</p>
+                                <div class="modal-body">
+                                    <table class="table">
+                                        <tbody  style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+                                            <tr>
+                                                <th>Entry Time:</th>
+                                                <th>{{vehicle.park_date}}</th>
+                                                <th>{{vehicle.park_time}}</th>
+                                            </tr>
+                                            <tr>
+                                                <th>Exit Time:</th>
+                                                <th>{{vehicle.exit_date}}</th>
+                                                <th>{{vehicle.exit_time}}</th>
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-mdb-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-success">Print &emsp13; <i class="fas fa-print"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Remove button -->
+                    <button class="btn btn-danger">Remove &emsp14; <i class="fas fa-x"></i></button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock body %}

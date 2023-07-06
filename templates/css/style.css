@@ -1,0 +1,60 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+}
+
+header {
+	background-color: #222;
+	color: #fff;
+	padding: 20px;
+	text-align: center;
+}
+
+main {
+	padding: 20px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.parking-space {
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 10px;
+	margin: 10px;
+	width: calc(33.33% - 20px);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.parking-space h2 {
+	font-size: 24px;
+	margin: 0 0 10px;
+}
+
+.parking-space p {
+	margin: 0 0 10px;
+}
+
+.available {
+	background-color: #cfc;
+}
+
+.occupied {
+	background-color: #fdd;
+}
+
+.park-here {
+	background-color: #0095ff;
+	color: #fff;
+	padding: 10px 20px;
+	border-radius: 5px;
+	text-decoration: none;
+}
+
+.park-here:hover {
+	background-color: #0078bf;
+}
+

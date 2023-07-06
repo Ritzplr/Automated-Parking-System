@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shortest Distance and Parking Slots</title>
+    <style>
+        .vacant {
+            color: green;
+        }
+
+        .full {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Shortest Distance Calculation and Parking Slots</h1>
+
+    <h2>Shortest Distance</h2>
+    <ul>
+    {% for destination, distance in distances.items %}
+        <li>Distance from {{ root_parking_space }} to Parking Space {{ destination }}: {{ distance }}</li>
+    {% endfor %}
+    </ul>
+
+    <h2>Parking Slots</h2>
+    <ul>
+    {% for slot in parking_slots %}
+        <li>Slot {{ slot.slot_number }} - Parking Space {{ slot.space.number }}
+            {% if slot.is_vacant %}
+                <span class="vacant">Vacant</span>
+            {% else %}
+                <span class="full">Full</span>
+            {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

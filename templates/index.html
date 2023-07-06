@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% block title %}Dash Board{% endblock title %}
+{% block body %}
+<div class="container mt-5">
+
+    <!-- Card Body -->
+    <div class="d-flex justify-content-between mb-5">
+        <div class="card m-2 text-primary w-25">
+            <h5 class="card-header fw-bold"><i class="fas fa-motorcycle "></i> &emsp14; Available slots</h5>
+            <div class="card-body">
+                <h5 class="card-title h1 text-center fw-bolder">
+                    <span class="">{{two_wheel}}</span><span class="text-info h2">/50</span>
+                </h5>
+            </div>
+            <div class="card-footer py-0 fw-bold">
+                <p>Booked: {{booked_two}}</p>
+            </div>
+        </div>
+        <div class="card m-2 text-primary w-25">
+            <h5 class="card-header fw-bold"> <i class="fas fa-car-side"></i> &emsp14; Available slots</h5>
+            <div class="card-body">
+                <h5 class="card-title h1 text-center fw-bolder">
+                    <span class="">{{four_wheel}}</span><span class="text-info h2">/50</span>                                   
+                </h5>
+            </div>
+            <div class="card-footer py-0 fw-bold">
+                <p>Booked: {{booked_four}}</p>
+            </div>
+        </div>
+        <!-- <div class="card m-2 text-warning w-25">
+            <h5 class="card-header fw-bold">Available Parkings</h5>
+            <div class="card-body">
+                <h5 class="card-title h1 text-center fw-bolder">
+                    {{remain}}
+                </h5>
+            </div>
+        </div> -->
+        <div class="card m-2 text-info w-25">
+            <h5 class="card-header fw-bold"> <i class="fas fa-sort-amount-up    "></i> &emsp14; Total Slots</h5>
+            <div class="card-body">
+                <h5 class="card-title h1 text-center fw-bolder">100</h5>
+            </div>
+            <div class="card-footer py-0 fw-bold">
+                <!-- <p>Booked: {{booked_two}}+{{booked_four}}</p> -->
+            </div>
+        </div>
+    </div>
+
+    <h1 class="text-center mb-5">Dashboard</h1>
+    <!-- Add vehicles -->
+    <h2>Add a Vehicle | <i class="fas fa-car"></i></h2>
+
+    <div class="card-body">
+        <form method="post" action="\">
+
+            <!-- Add CSRF token -->
+            {% csrf_token %}
+
+            <div class="row mb-4">
+                <div class="col">
+                    <!-- <label for="inlineFormSelectPref">Registered City: &emsp;&emsp;&emsp;</label> -->
+                    <select class="form-label form-control select col-6 col-sm-5" name="state" required>
+                        <option value="UP11 ">UP 11</option>
+                        <option value="UP12 ">UP 12</option>
+                        <option value="UP13 ">UP 13</option>
+                        <option value="UP14 ">UP 14</option>
+                        <option value="UP15 ">UP 15</option>
+                        <option value="UP16 ">UP 16</option>
+                        <option value="UP17 ">UP 17</option>
+                        <option value="UP18 ">UP 18</option>
+                        <option value="UP19 ">UP 19</option>
+                        <option value="UP20 ">UP 20</option>
+                        <option value="UP21 ">UP 21</option>
+                        <option value="UP22 ">UP 22</option>
+                        <option value="UP23 ">UP 23</option>
+                        <option value="UP24 ">UP 24</option>
+                        <option value="UP25 ">UP 25</option>
+                        <option value="UP26 ">UP 26</option>
+                        <option value="UP27 ">UP 27</option>
+                        <option value="UP28 ">UP 28</option>
+                        <option value="UP29 ">UP 29</option>
+                        <option value="UP30 ">UP 30</option>
+                        <option value="UP31 ">UP 31</option>
+                        <option value="UP32 ">UP 32</option>
+                        <option value="UP33 ">UP 33</option>
+                        <option value="UP34 ">UP 34</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <!-- Name input -->
+                    <div class="form-outline">
+                        <input type="text" id="form8Example3" class="form-control text-uppercase" name="vehicle_no" required />
+                        <label class="form-label" for="form8Example3">Vehicle number</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <!-- <label for="inlineFormSelectPref">Vehicle type</label> -->
+                    <select class="form-label form-control select col-6 col-sm-5" name="vehicle_type" required>
+                        <option value="2 Wheeler">Two Wheeler</option>
+                        <option value="4 Wheeler">Four Wheeler</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Book &emsp; <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+        </form>
+    </div>
+    <hr>
+</div>
+{% endblock body %}
